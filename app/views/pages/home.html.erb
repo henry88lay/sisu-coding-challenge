@@ -1,0 +1,17 @@
+<h1>My Favourite Films</h1>
+
+<h3>Henry's Favourite Films Average Score: <%= @total_avg %> </h3>
+<h3>Average Adventure Genre Score: <%= @adventure_avg  %> </h3>
+
+
+<div class="grid-container">
+  <% @movies.each do |movie| %>
+    <div class="grid-item">
+    <p><%= movie.title %> - <%= movie.vote_average %> </p>
+    <p><%= get_genre(movie.genre_ids)%> </p>
+    <p><%= (Date.parse(movie.release_date)).strftime("%B %Y")%></p>
+    <p><%= image_tag("https://image.tmdb.org/t/p/w500" + movie.poster_path, class: 'img-thumbnail')%> </p>
+    </div>
+  <% end %>
+</div>
+
